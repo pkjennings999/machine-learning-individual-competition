@@ -1,0 +1,10 @@
+TODO:
+
+Better NaN 	- Mean for training
+		- Interpolation
+
+Noise removal
+
+Remove dead features
+
+Better regression
