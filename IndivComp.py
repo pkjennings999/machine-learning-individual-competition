@@ -131,14 +131,14 @@ def main():
 
     # Predict and score the training
     predictions = predictRegression(model, training)
-    mse = math.sqrt(mean_squared_error(target[IncomeColumn], predictions))
-    print(mse)
+    rmse = math.sqrt(mean_squared_error(target[IncomeColumn], predictions))
+    print(rmse)
 
 
     # Predict and score the unseen data
     predictions = predictRegression(model, checker)
-    mse = math.sqrt(mean_squared_error(checkerTarget[IncomeColumn], predictions))
-    print(mse)
+    rmse = math.sqrt(mean_squared_error(checkerTarget[IncomeColumn], predictions))
+    print(rmse)
 
 
     # Predict the unknown data
@@ -240,6 +240,7 @@ def removeOutliersZScore(data):
     return newData
 
 
+# Add given amount of polynomial features to data
 def addPolynomialFeature(data, degree):
     poly_data = PolynomialFeatures(degree=degree)
 
