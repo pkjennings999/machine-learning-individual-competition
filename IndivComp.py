@@ -10,10 +10,8 @@ from datetime import datetime
 from sklearn.base import TransformerMixin
 import math
 from sklearn.preprocessing import PolynomialFeatures
-from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.neural_network import MLPRegressor
-from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import RandomForestRegressor
 
 #Files
@@ -131,7 +129,7 @@ def main():
     model = doMLPRegression(training, target[IncomeColumn])
 
 
-    # Predict and score the trainging
+    # Predict and score the training
     predictions = predictRegression(model, training)
     mse = math.sqrt(mean_squared_error(target[IncomeColumn], predictions))
     print(mse)
@@ -238,7 +236,6 @@ def removeOutliersZScore(data):
     outlierColumns = data[[IncomeColumn]].copy()
     z = numpy.abs(stats.zscore(outlierColumns))
 
-
     newData = data[(z < 12).all(axis=1)]
     return newData
 
@@ -247,19 +244,14 @@ def addPolynomialFeature(data, degree):
     poly_data = PolynomialFeatures(degree=degree)
 
     dataPoly = poly_data.fit_transform(data[[YearOfRecordColumn, AgeColumn, SizeOfCityColumn, BodyHeightColumn]])
-    # testP = poly_test.fit_transform(test[[YearOfRecordColumn, AgeColumn, SizeOfCityColumn, BodyHeightColumn]])
 
     dataPoly_cols = poly_data.get_feature_names(data[[YearOfRecordColumn, AgeColumn, SizeOfCityColumn, BodyHeightColumn]].columns)
-    # testP_cols = poly_test.get_feature_names(test[[YearOfRecordColumn, AgeColumn, SizeOfCityColumn, BodyHeightColumn]].columns)
 
     dataPoly_df = pandas.DataFrame(dataPoly, columns = dataPoly_cols)
-    # testPdf = pandas.DataFrame(testP, columns = testP_cols)
 
     dataPoly_df = dataPoly_df.drop([YearOfRecordColumn, AgeColumn, SizeOfCityColumn, BodyHeightColumn], axis=1)
-    # testPdf = testPdf.drop([YearOfRecordColumn, AgeColumn, SizeOfCityColumn, BodyHeightColumn], axis=1)
 
     data = pandas.concat([data, dataPoly_df], axis=1)
-    # test = pandas.concat([test, testPdf], axis=1)
 
     return data
 
