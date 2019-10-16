@@ -10,7 +10,7 @@ The timestamp 'csv's are my 5 submissions that I selected to be used for the pri
 
 [IndivComp.py](IndivComp.py) is the code that runs the prediction. I will talk about the contents of this later.
 
-All the tcd ml... files are the data provided by the competiton.
+All the tcd ml.. files are the data provided by the competiton.
 
 ## Methodology
 As per the comments in [IndivComp.py](IndivComp.py), the following is my methodology:
