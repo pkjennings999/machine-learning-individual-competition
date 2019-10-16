@@ -6,7 +6,7 @@
  Kaggle Username: A4C96D6A7369877638D1
 
 ## File Layout
-The timestamp 'csv's are my 5 submissions that I selected to be used for the private leaderboard of the competition. [15_10_2019_22_49_57.csv](15_10_2019_22_49_57.csv) is my best public leaderboard submission.
+The timestamp 'csv's are my 5 submissions that I selected to be used for the private leaderboard of the competition. [15_10_2019_22_49_57.csv](15_10_2019_22_49_57.csv) is my best public leaderboard submission. The other 4 are located in the [Other top 5 predictions](/Other&#32top&#325&#32predictions) folder.
 
 [IndivComp.py](IndivComp.py) is the code that runs the prediction. I will talk about the contents of this later.
 
